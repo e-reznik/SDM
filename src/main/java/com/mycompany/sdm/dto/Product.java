@@ -2,10 +2,18 @@ package com.mycompany.sdm.dto;
 
 import com.mycompany.sdm.interfaces.IProperties;
 import com.opencsv.bean.CsvBindByName;
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Id;
+import javax.persistence.Transient;
 
-public class Product implements IProperties {
+@Entity
+public class Product implements IProperties, Serializable {
 
     @CsvBindByName
+    @Enumerated(EnumType.STRING)
     private ProductTypes type;
     @CsvBindByName
     private String title;
@@ -15,8 +23,10 @@ public class Product implements IProperties {
     private int bestBefore;
     @CsvBindByName
     private double price;
-    // Ob ein Produkt entsorgt werden soll. Standard is false
+    @Transient
     private boolean disposable;
+    @Id
+    private Long id;
 
     public Product() {
     }
@@ -72,5 +82,13 @@ public class Product implements IProperties {
     @Override
     public String toString() {
         return "Product{" + "type=" + type + ", title=" + title + ", quality=" + quality + ", bestBefore=" + bestBefore + ", price=" + price + ", disposable=" + disposable + '}';
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
