@@ -49,7 +49,7 @@ public class Reader implements IProperties {
      * @return Liste mit Products
      * @throws FileNotFoundException
      */
-    private List<Product> fromCsv(InputStreamReader isr) throws FileNotFoundException {
+    private List<Product> fromCsv(InputStreamReader isr) {
         return new CsvToBeanBuilder<Product>(isr)
                 .withType(Product.class)
                 .build().parse();
