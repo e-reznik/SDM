@@ -1,21 +1,21 @@
 package com.mycompany.sdm;
 
-import com.mycompany.sdm.dto.Product;
 import com.mycompany.sdm.interfaces.IProperties;
-import static com.mycompany.sdm.interfaces.IProperties.qualities;
+import com.mycompany.sdm.dto.Product;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Processor {
+public class Processor implements IProperties {
 
     private static final Logger LOGGER = Logger.getLogger(Processor.class.getName());
 
     public Processor() {
     }
 
-    public void process(List<Product> products, int days) {
+    public List<Product> process(List<Product> products, int days) {
         processProducts(products, days);
+        return products;
     }
 
     /**
@@ -23,9 +23,7 @@ public class Processor {
      * vorderfinierter Wert). Wird ausgeführt, wenn neue Produkte ins Regal
      * einsortiert werden sollen.
      *
-     * Käse < 30
-     * Wein < 1 (1 ist default)
-     * Äpfel < 10
+     * Käse < 30 Wein < 1 (1 ist default) Äpfel < 10
      *
      * @param products Vorverarbeitete Liste ohne "schlechte" Produkte
      */
@@ -45,8 +43,8 @@ public class Processor {
      * @param products Liste mit den Produkten
      */
     private void processProducts(List<Product> products, int days) {
-        for (int i = 0; i <= days; i++) {
-            LOGGER.log(Level.INFO, "Tag: {0}", 1);
+        for (int i = 1; i <= days; i++) {
+            LOGGER.log(Level.INFO, "Tag: {0}", i);
 
             for (Product p : products) {
                 applyRules(p, i);

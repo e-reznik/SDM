@@ -1,10 +1,10 @@
 package com.mycompany.sdm;
 
-import com.mycompany.sdm.dto.Product;
 import com.mycompany.sdm.interfaces.IProperties;
+import com.mycompany.sdm.dto.Product;
 import com.opencsv.bean.CsvToBeanBuilder;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.InputStreamReader;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -16,12 +16,12 @@ public class Reader implements IProperties {
     /**
      * Liest Produkte aus einer CSV ein.
      *
-     * @param path Path der CSV
+     * @param isr
      * @return Liste der eingelesenen Produktei
      * @throws FileNotFoundException
      */
-    public List<Product> read(String path) throws FileNotFoundException {
-        return fromCsv(path);
+    public List<Product> read(InputStreamReader isr) throws FileNotFoundException {
+        return fromCsv(isr);
     }
 
     /**
@@ -49,8 +49,9 @@ public class Reader implements IProperties {
      * @return Liste mit Products
      * @throws FileNotFoundException
      */
-    private List<Product> fromCsv(String path) throws FileNotFoundException {
-        return new CsvToBeanBuilder<Product>(new FileReader(path))
-                .withType(Product.class).build().parse();
+    private List<Product> fromCsv(InputStreamReader isr) throws FileNotFoundException {
+        return new CsvToBeanBuilder<Product>(isr)
+                .withType(Product.class)
+                .build().parse();
     }
 }
