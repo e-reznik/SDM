@@ -12,6 +12,8 @@ Als kleinen Service, habe ich einen [CSV-Generator](https://github.com/e-reznik/
 ## SDM GUI
 Als weiteres Bonbon, haben Sie die Möglichkeit, beide Module von einer [GUI](https://github.com/e-reznik/SDM-Gui) aus anzusprechen. In dieser Applikation wurden beide Module vereint, sodass diese noch komfortabler von Ihnen bedient werden können.
 
+# Code Coverage
+
 # Eigenschaften
 
 ## Produkttypen
