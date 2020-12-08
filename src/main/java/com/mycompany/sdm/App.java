@@ -21,7 +21,7 @@ public class App {
         try {
             InputStream is = new FileInputStream("/home/evgenij/products.csv");
             InputStreamReader isr = new InputStreamReader(is);
-            
+
             products = r.read(isr);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);

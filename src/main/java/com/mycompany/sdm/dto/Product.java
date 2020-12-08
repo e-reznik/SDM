@@ -3,6 +3,7 @@ package com.mycompany.sdm.dto;
 import com.mycompany.sdm.interfaces.IProperties;
 import com.opencsv.bean.CsvBindByName;
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -29,6 +30,15 @@ public class Product implements IProperties, Serializable {
     private Long id;
 
     public Product() {
+    }
+
+    public Product(ProductTypes type, String title, int quality, int bestBefore, double price, boolean disposable) {
+        this.type = type;
+        this.title = title;
+        this.quality = quality;
+        this.bestBefore = bestBefore;
+        this.price = price;
+        this.disposable = disposable;
     }
 
     public ProductTypes getType() {
@@ -91,4 +101,50 @@ public class Product implements IProperties, Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Product other = (Product) obj;
+        if (this.quality != other.quality) {
+            return false;
+        }
+        if (this.bestBefore != other.bestBefore) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.price) != Double.doubleToLongBits(other.price)) {
+            return false;
+        }
+        if (this.disposable != other.disposable) {
+            return false;
+        }
+        if (!Objects.equals(this.title, other.title)) {
+            return false;
+        }
+        if (this.type != other.type) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 37 * hash + Objects.hashCode(this.type);
+        hash = 37 * hash + Objects.hashCode(this.title);
+        hash = 37 * hash + this.quality;
+        hash = 37 * hash + this.bestBefore;
+        hash = 37 * hash + (int) (Double.doubleToLongBits(this.price) ^ (Double.doubleToLongBits(this.price) >>> 32));
+        hash = 37 * hash + (this.disposable ? 1 : 0);
+        return hash;
+    }
+
 }

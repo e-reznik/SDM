@@ -1,4 +1,3 @@
-
 package com.mycompany.sdm.dto;
 
 import javax.persistence.Entity;
