@@ -15,7 +15,7 @@ Als weiteres Bonbon, haben Sie die Möglichkeit, beide Module von einer [GUI](ht
 # Eigenschaften
 
 ## Produkttypen
-Die Produkte können vom folgenden Typen sein:
+Die Produkte können vom folgenden Typ sein:
  - Käse  (vorgegeben)
  - Wein (vorgegeben)
  - Apfel
