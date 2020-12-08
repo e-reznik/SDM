@@ -13,6 +13,13 @@ public class Processor implements IProperties {
     public Processor() {
     }
 
+    /**
+     * Verarbeitung der Produkte nach festgelegten Regeln.
+     *
+     * @param products Liste mit den Produkten
+     * @param days Anzahl Tage (Iterationen)
+     * @return aktualisierte Liste mit den Produkten
+     */
     public List<Product> process(List<Product> products, int days) {
         processProducts(products, days);
         return products;
@@ -20,12 +27,12 @@ public class Processor implements IProperties {
 
     /**
      * Vorverarbeitung: Entferne Produkte mit minderer Qualität (Qualität <
-     * vorderfinierter Wert). Wird ausgeführt, wenn neue Produkte ins Regal
-     * einsortiert werden sollen.
+     * vorderfinierter Wert). Kann ausgeführt werden, wenn neue Produkte ins
+     * Regal einsortiert werden sollen.
      *
      * Käse < 30 Wein < 1 (1 ist default) Äpfel < 10
      *
-     * @param products Vorverarbeitete Liste ohne "schlechte" Produkte
+     * @param products Vorverarbeitete Liste ohne abgelaufene Produkte
      */
     private List<Product> preprocessing(List<Product> products) {
         for (IProperties.ProductTypes pt : IProperties.ProductTypes.values()) {
@@ -57,10 +64,10 @@ public class Processor implements IProperties {
     }
 
     /**
-     * Verarbeitungsregeln anwenden.
+     * Verarbeitungsregeln pro Produkt anwenden.
      *
-     * @param p
-     * @param i
+     * @param p das zu verarbeitende Produkt
+     * @param i der aktuelle Tag
      */
     private void applyRules(Product p, int i) {
         /* Produktinfos */
@@ -92,7 +99,7 @@ public class Processor implements IProperties {
     /**
      * Abgelaufene Produkte entfernen.
      *
-     * @param products
+     * @param products aktualisierte Liste
      */
     private void removeExpiredProducts(List<Product> products) {
         products.removeIf(o -> o.getBestBefore() < 1);
@@ -101,7 +108,7 @@ public class Processor implements IProperties {
     /**
      * Produkte, die entsorgt werden können (niedrige Qualität), entfernen.
      *
-     * @param products
+     * @param products aktualisierte Liste
      */
     private void removeDisposableProducts(List<Product> products) {
         products.removeIf(o -> o.isDisposable());
