@@ -67,6 +67,7 @@
                     <excludes>
                         <exclude>**/dto/**/*</exclude>
                         <exclude>**/App.class</exclude>
+                        <exclude>**/Dao.class</exclude>
                     </excludes>
                 </configuration>
             </plugin>
