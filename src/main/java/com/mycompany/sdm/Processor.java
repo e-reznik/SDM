@@ -2,13 +2,14 @@ package com.mycompany.sdm;
 
 import com.mycompany.sdm.dto.Product;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import com.mycompany.sdm.interfaces.Properties;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 public class Processor implements Properties {
 
-    private static final Logger LOGGER = Logger.getLogger(Processor.class.getName());
+    private static final Logger LOGGER = LogManager.getLogger(Processor.class);
 
     public Processor() {
     }
@@ -51,13 +52,12 @@ public class Processor implements Properties {
      */
     private void processProducts(List<Product> products, int days) {
         for (int i = 1; i <= days; i++) {
-            LOGGER.log(Level.INFO, "Tag: {0}", i);
+            LOGGER.info("Tag: " + i);
 
             for (Product p : products) {
                 applyRules(p, i);
             }
 
-            LOGGER.log(Level.INFO, "\n---\n");
             removeExpiredProducts(products);
 //            removeDisposableProducts(products);
         }
@@ -75,25 +75,34 @@ public class Processor implements Properties {
         int quality = p.getQuality();
         int bestBefore = p.getBestBefore();
         double price = p.getPrice();
-        
+
         /* Qualitätsinfos */
         int minQuality = qualities.get(type).getMinQuality();
         int qualityChange = qualities.get(type).getQualityChange();
         int changeAfterDays = qualities.get(type).getChangeQualAfterDays();
 
-        /* Generische Verarbeitung */
+        /* Ändere die Qualität nach einer bestimmten Anzahl an Tagen */
         if (i % changeAfterDays == 0) {
             p.setQuality(quality + qualityChange);
+        }
 
-            if (quality < minQuality) {
+        /* Wenn die Qualität ein bestimmtes Niveau unterschreitet 
+        oder wenn das MHD erreicht ist, wird das Produkt entsorgt.
+        Gilt nicht für Wein. */
+        if (!type.equals(type.WEIN)) {
+            if (!type.equals(type.WEIN)
+                    && (quality < minQuality || bestBefore < 1)) {
                 p.setDisposable(true);
             }
+
+            // Tagespreis anpassen
+            price = price + (0.1 * quality);
+
+            // täglich das Verfallsdatum um 1 Tag verringern
+            p.setBestBefore(bestBefore - 1);
         }
 
         LOGGER.log(Level.INFO, p.toString());
-
-        // täglich das Verfallsdatum um 1 Tag verringern
-        p.setBestBefore(bestBefore - 1);
     }
 
     /**
