@@ -13,13 +13,9 @@ Als kleinen Service, habe ich einen [CSV-Generator](https://github.com/e-reznik/
 Als weiteres Bonbon, haben Sie die Möglichkeit, beide Module von einer [GUI](https://github.com/e-reznik/SDM-Gui) aus anzusprechen. In dieser Applikation wurden beide Module vereint, sodass diese noch komfortabler von Ihnen bedient werden können.
 
 # Beispielnutzung
-
-
-# Code Coverage
-
-# Eigenschaften
 Um die Daten einzulesen, muss die Methode `read()` des Objekts `Reader` aufgerufen werden. Der Rückgabewert ist eine Liste mit den Produkten, die anschließend an die Methode `process()` des Objekts `Processor` übergeben wird.  
 Dabei können Sie entscheiden, ob Sie die Daten aus einer CSV oder aus der DB lesen möchten.
+
 ## Von CSV laden
 Wenn Sie Ihre Produkte aus einer CSV laden möchten, müssen Sie der Method `read()` einen Stream mit Ihrer CSV übergeben:
 
@@ -30,6 +26,7 @@ InputStreamReader isr = new InputStreamReader(is);
 
 List<Product> products = r.read(isr);
 ```
+
 ## Aus der DB
 Haben Sie ihre Produkte in einer Datenbank gespeichert, kann darauf mittels JPA zugegriffen werden. Dabei wird die Methode `read()` ohne Parameter aufgerufen:
 
@@ -38,6 +35,7 @@ Reader r = new Reader();
 
 List<Product> products = r.read();
 ```
+
 ## Produkte verarbeiten
 Die zuvor erhaltene Liste müssen Sie mit der gewünschten Anzahl an Tagen an die Methode `process()` übergeben.
 
@@ -48,8 +46,9 @@ int days = 30;
 p.process(products, days);
 ```
 
+# Code Coverage
 
-
+# Eigenschaften
 ## Produkttypen
 Die Produkte können vom folgenden Typ sein:
  - Käse  (vorgegeben)
@@ -75,7 +74,10 @@ Im Gesamtprojekt wurde eine Reihe von Techniken und Technologien verwendet. Nach
  - CSV
    - [opencsv](http://opencsv.sourceforge.net/)
  - DB & JPA
- - [jUnit](https://junit.org/junit5/)
- - [JaCoCo](https://github.com/jacoco/jacoco)
+ - Logger
+   - [Log4j 2](https://logging.apache.org/log4j/2.x/)
+ - Testen
+   - [jUnit](https://junit.org/junit5/)
+   - [JaCoCo](https://github.com/jacoco/jacoco)
  - JSF & [PrimeFaces](https://www.primefaces.org/showcase/)
  - GitHub
