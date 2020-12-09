@@ -61,12 +61,11 @@ Die Produkte können vom folgenden Typ sein:
 Im Gesamtprojekt wurde eine Reihe von Techniken und Technologien verwendet. Nachfolgend werden diese aufgeführt:
 
 **Techniken**
- - OOP
-   - Klassen
-   - Interfaces
-   - Collections
-   - Enums
-   - Streams
+ - Klassen
+ - Interfaces
+ - Collections
+ - Enums
+ - Streams
  - Generics
 
 **Technologien**
