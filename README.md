@@ -4,6 +4,7 @@ Dies ist das Hauptprogramm, mit der eigentlichen Verarbeitungslogik. Zum Gesamtp
 - [SDM GUI](https://github.com/e-reznik/SDM-Gui)
 
 Die Grafik visualisiert deren Kooperation:
+
 ![Module](https://github.com/e-reznik/SDM/blob/master/src/main/resources/img/components.png)
 
 # Module
