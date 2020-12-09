@@ -12,9 +12,43 @@ Als kleinen Service, habe ich einen [CSV-Generator](https://github.com/e-reznik/
 ## SDM GUI
 Als weiteres Bonbon, haben Sie die Möglichkeit, beide Module von einer [GUI](https://github.com/e-reznik/SDM-Gui) aus anzusprechen. In dieser Applikation wurden beide Module vereint, sodass diese noch komfortabler von Ihnen bedient werden können.
 
+# Beispielnutzung
+
+
 # Code Coverage
 
 # Eigenschaften
+Um die Daten einzulesen, muss die Methode `read()` des Objekts `Reader` aufgerufen werden. Der Rückgabewert ist eine Liste mit den Produkten, die anschließend an die Methode `process()` des Objekts `Processor` übergeben wird.  
+Dabei können Sie entscheiden, ob Sie die Daten aus einer CSV oder aus der DB lesen möchten.
+## Von CSV laden
+Wenn Sie Ihre Produkte aus einer CSV laden möchten, müssen Sie der Method `read()` einen Stream mit Ihrer CSV übergeben:
+
+```java
+Reader r = new Reader();
+InputStream is = new FileInputStream("/home/products.csv");
+InputStreamReader isr = new InputStreamReader(is);
+
+List<Product> products = r.read(isr);
+```
+## Aus der DB
+Haben Sie ihre Produkte in einer Datenbank gespeichert, kann darauf mittels JPA zugegriffen werden. Dabei wird die Methode `read()` ohne Parameter aufgerufen:
+
+```java
+Reader r = new Reader();
+
+List<Product> products = r.read();
+```
+## Produkte verarbeiten
+Die zuvor erhaltene Liste müssen Sie mit der gewünschten Anzahl an Tagen an die Methode `process()` übergeben.
+
+```java
+Processor p = new Processor();
+int days = 30;
+
+p.process(products, days);
+```
+
+
 
 ## Produkttypen
 Die Produkte können vom folgenden Typ sein:
@@ -23,3 +57,25 @@ Die Produkte können vom folgenden Typ sein:
  - Apfel
  
  ## Produkteigenschaften
+
+# Verwendete Techniken & Technologien
+Im Gesamtprojekt wurde eine Reihe von Techniken und Technologien verwendet. Nachfolgend werden diese aufgeführt:
+
+**Techniken**
+ - OOP
+   - Klassen
+   - Interfaces
+   - Collections
+   - Enums
+   - Streams
+ - Generics
+
+**Technologien**
+ - Maven
+ - CSV
+   - [opencsv](http://opencsv.sourceforge.net/)
+ - DB & JPA
+ - [jUnit](https://junit.org/junit5/)
+ - [JaCoCo](https://github.com/jacoco/jacoco)
+ - JSF & [PrimeFaces](https://www.primefaces.org/showcase/)
+ - GitHub
