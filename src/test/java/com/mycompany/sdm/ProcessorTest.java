@@ -33,8 +33,8 @@ public class ProcessorTest {
         expResult.add(new Product(Properties.ProductTypes.KAESE, "FETA", -16, 25, 917.0, true));
         expResult.add(new Product(Properties.ProductTypes.KAESE, "CAMEMBERT", 3, 41, 390.0, true));
         expResult.add(new Product(Properties.ProductTypes.KAESE, "HARZER", -24, 50, 696.0, true));
-        expResult.add(new Product(Properties.ProductTypes.WEIN, "SANGIOVESE", 26, 163, 4590.0, false));
-        expResult.add(new Product(Properties.ProductTypes.WEIN, "SANGIOVESE", 45, 220, 3509.0, false));
+        expResult.add(new Product(Properties.ProductTypes.WEIN, "SANGIOVESE", 26, 193, 4590.0, false));
+        expResult.add(new Product(Properties.ProductTypes.WEIN, "SANGIOVESE", 45, 250, 3509.0, false));
 
         assertIterableEquals(expResult, result);
     }
