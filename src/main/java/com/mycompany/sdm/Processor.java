@@ -1,12 +1,12 @@
 package com.mycompany.sdm;
 
-import com.mycompany.sdm.interfaces.IProperties;
 import com.mycompany.sdm.dto.Product;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import com.mycompany.sdm.interfaces.Properties;
 
-public class Processor implements IProperties {
+public class Processor implements Properties {
 
     private static final Logger LOGGER = Logger.getLogger(Processor.class.getName());
 
@@ -35,7 +35,7 @@ public class Processor implements IProperties {
      * @param products Vorverarbeitete Liste ohne abgelaufene Produkte
      */
     private List<Product> preprocessing(List<Product> products) {
-        for (IProperties.ProductTypes pt : IProperties.ProductTypes.values()) {
+        for (Properties.ProductTypes pt : Properties.ProductTypes.values()) {
             products.removeIf(
                     o -> o.getType() == pt
                     && o.getQuality() < qualities.get(pt).getMinQuality()
@@ -71,11 +71,11 @@ public class Processor implements IProperties {
      */
     private void applyRules(Product p, int i) {
         /* Produktinfos */
-        IProperties.ProductTypes type = p.getType();
+        Properties.ProductTypes type = p.getType();
         int quality = p.getQuality();
         int bestBefore = p.getBestBefore();
         double price = p.getPrice();
-
+        
         /* Qualitätsinfos */
         int minQuality = qualities.get(type).getMinQuality();
         int qualityChange = qualities.get(type).getQualityChange();
