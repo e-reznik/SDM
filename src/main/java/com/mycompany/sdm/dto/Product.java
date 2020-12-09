@@ -1,6 +1,5 @@
 package com.mycompany.sdm.dto;
 
-import com.mycompany.sdm.interfaces.IProperties;
 import com.opencsv.bean.CsvBindByName;
 import java.io.Serializable;
 import java.util.Objects;
@@ -9,9 +8,10 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Transient;
+import com.mycompany.sdm.interfaces.Properties;
 
 @Entity
-public class Product implements IProperties, Serializable {
+public class Product implements Properties, Serializable {
 
     @CsvBindByName
     @Enumerated(EnumType.STRING)

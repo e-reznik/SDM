@@ -1,14 +1,14 @@
 package com.mycompany.sdm.dto;
 
-import com.mycompany.sdm.interfaces.IProperties;
+import com.mycompany.sdm.interfaces.Properties;
 
-public class Properties implements IProperties {
+public class ProductProperties implements Properties {
 
     private int minQuality;
     private int qualityChange;
     private int changeQualAfterDays;
 
-    public Properties(int minQuality, int qualityChange, int changeQualAfterDays) {
+    public ProductProperties(int minQuality, int qualityChange, int changeQualAfterDays) {
         this.minQuality = minQuality;
         this.qualityChange = qualityChange;
         this.changeQualAfterDays = changeQualAfterDays;

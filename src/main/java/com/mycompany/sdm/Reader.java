@@ -1,12 +1,12 @@
 package com.mycompany.sdm;
 
-import com.mycompany.sdm.interfaces.IProperties;
 import com.mycompany.sdm.dto.Product;
 import com.opencsv.bean.CsvToBeanBuilder;
 import java.io.InputStreamReader;
 import java.util.List;
+import com.mycompany.sdm.interfaces.Properties;
 
-public class Reader implements IProperties {
+public class Reader implements Properties {
 
     /**
      * Liest Produkte aus einer CSV ein.

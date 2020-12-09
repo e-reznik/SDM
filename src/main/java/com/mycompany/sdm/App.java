@@ -14,6 +14,7 @@ public class App {
     public static void main(String[] args) {
         Reader r = new Reader();
         Processor p = new Processor();
+        int days = 30;
 
         List<Product> products = null;
 
@@ -29,6 +30,6 @@ public class App {
 
         // Produkte aus der DB mit JPA einlesen
 //        products = r.read();
-        p.process(products, 30);
+        p.process(products, days);
     }
 }

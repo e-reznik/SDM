@@ -1,13 +1,13 @@
 package com.mycompany.sdm;
 
 import com.mycompany.sdm.dto.Product;
-import com.mycompany.sdm.interfaces.IProperties;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import com.mycompany.sdm.interfaces.Properties;
 
 public class ProcessorTest {
 
@@ -30,11 +30,11 @@ public class ProcessorTest {
         List<Product> result = instance.process(reader.read(isr), days);
         List<Product> expResult = new ArrayList<>();
 
-        expResult.add(new Product(IProperties.ProductTypes.KAESE, "FETA", -16, 25, 917.0, true));
-        expResult.add(new Product(IProperties.ProductTypes.KAESE, "CAMEMBERT", 3, 41, 390.0, true));
-        expResult.add(new Product(IProperties.ProductTypes.KAESE, "HARZER", -24, 50, 696.0, true));
-        expResult.add(new Product(IProperties.ProductTypes.WEIN, "SANGIOVESE", 26, 163, 4590.0, false));
-        expResult.add(new Product(IProperties.ProductTypes.WEIN, "SANGIOVESE", 45, 220, 3509.0, false));
+        expResult.add(new Product(Properties.ProductTypes.KAESE, "FETA", -16, 25, 917.0, true));
+        expResult.add(new Product(Properties.ProductTypes.KAESE, "CAMEMBERT", 3, 41, 390.0, true));
+        expResult.add(new Product(Properties.ProductTypes.KAESE, "HARZER", -24, 50, 696.0, true));
+        expResult.add(new Product(Properties.ProductTypes.WEIN, "SANGIOVESE", 26, 163, 4590.0, false));
+        expResult.add(new Product(Properties.ProductTypes.WEIN, "SANGIOVESE", 45, 220, 3509.0, false));
 
         assertIterableEquals(expResult, result);
     }

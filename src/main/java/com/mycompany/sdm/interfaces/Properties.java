@@ -1,9 +1,9 @@
 package com.mycompany.sdm.interfaces;
 
-import com.mycompany.sdm.dto.Properties;
+import com.mycompany.sdm.dto.ProductProperties;
 import java.util.Map;
 
-public interface IProperties {
+public interface Properties {
 
     /* Produkttypen */
     public enum ProductTypes {
@@ -21,10 +21,10 @@ public interface IProperties {
      * Äpfel: minimale Qualiät: 10; Qualität ändert sich um -1; alle 2 Tage;
      *
      */
-    public Map<ProductTypes, Properties> qualities = Map.of(
-            ProductTypes.KAESE, new Properties(30, -1, 1),
-            ProductTypes.WEIN, new Properties(1, 1, 10),
-            ProductTypes.AEPFEL, new Properties(10, -1, 2)
+    public Map<ProductTypes, ProductProperties> qualities = Map.of(
+            ProductTypes.KAESE, new ProductProperties(30, -1, 1),
+            ProductTypes.WEIN, new ProductProperties(1, 1, 10),
+            ProductTypes.AEPFEL, new ProductProperties(10, -1, 2)
     );
 
 }
