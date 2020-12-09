@@ -3,6 +3,8 @@ Dies ist das Hauptprogramm, mit der eigentlichen Verarbeitungslogik. Zum Gesamtp
 - [SDM CSV-Generator](https://github.com/e-reznik/SDM-CSV-Generator)
 - [SDM GUI](https://github.com/e-reznik/SDM-Gui)
 
+**_Info: Damit Sie direkt mit dem Ausprobieren loslegen können, habe ich Ihnen eine [Beispiel-CSV](https://github.com/e-reznik/SDM/blob/master/src/main/resources/products.csv) erstellt._**
+
 Die Grafik visualisiert deren Kooperation:
 
 ![Module](https://github.com/e-reznik/SDM/blob/master/src/main/resources/img/components.png)
