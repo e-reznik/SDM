@@ -3,6 +3,9 @@ Dies ist das Hauptprogramm, mit der eigentlichen Verarbeitungslogik. Zum Gesamtp
 - [SDM CSV-Generator](https://github.com/e-reznik/SDM-CSV-Generator)
 - [SDM GUI](https://github.com/e-reznik/SDM-Gui)
 
+Die Grafik visualisiert deren Kooperation:
+![Module](https://github.com/e-reznik/SDM/blob/master/src/main/resources/img/components.png)
+
 # Module
 Sowohl das Hauptprogramm, als auch der CSV-Generator sind als Module verfügbar und agieren unabhängig. Sie können zwar in fremden Projekten verwendet und durch Schnittstellen angesprochen werden, sind allerdings aufeinander abgestimmt.
 
@@ -47,6 +50,9 @@ p.process(products, days);
 ```
 
 # Code Coverage
+Die Logikklassen haben eine Testabdeckung von 82%:
+
+![CoCo](https://github.com/e-reznik/SDM/blob/master/src/main/resources/img/coco.png)
 
 # Eigenschaften
 ## Produkttypen
