@@ -83,7 +83,7 @@ public class Processor implements Properties {
 
         /* Ändere die Qualität nach einer bestimmten Anzahl an Tagen */
         if (i % changeAfterDays == 0
-                && quality > 0) {
+                && quality >= 1) {
             p.setQuality(quality + qualityChange);
         }
 
