@@ -63,14 +63,30 @@ Die Logikklassen haben eine Testabdeckung von 82%:
 
 ---
 
-# Eigenschaften
+# Produkteigenschaften
+Ein Produkt wird einem Typen zugeordnet und weist einige Eigenschaften auf.
+
 ## Produkttypen
 Die Produkte können vom folgenden Typ sein:
- - Käse  (vorgegeben)
+ - Käse (vorgegeben)
  - Wein (vorgegeben)
  - Apfel
  
- ## Produkteigenschaften
+## Eigenschaften
+Weiterhin hat ein Produkt die folgenden Eigenschaften
+ - ID
+ - Bezeichnung
+ - MHD (Mindesthaltbarkeitsdatum in Tagen)
+ - Preis (in Cent)
+ - Qualität
+ - Aussortierbar?
+ 
+Wobei für jeden Produkttypen individuelle Kriterienbereiche definiert wurden. Beispielsweise liegt das MHD beim Käse in einem Bereich von 10 bis 100 Tagen, während es beim Wein zwischen 30 und 365 Tagen betragen kann.
+
+## Regeln
+Die folgenden Regeln werden auf die Produkte angewandt:
+
+![Regeln](https://github.com/e-reznik/SDM/blob/master/src/main/resources/img/matrix.png)
 
 ---
 
