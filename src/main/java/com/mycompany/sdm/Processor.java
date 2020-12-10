@@ -82,21 +82,21 @@ public class Processor implements Properties {
         int changeAfterDays = qualities.get(type).getChangeQualAfterDays();
 
         /* Ändere die Qualität nach einer bestimmten Anzahl an Tagen */
-        if (i % changeAfterDays == 0) {
+        if (i % changeAfterDays == 0
+                && quality > 0) {
             p.setQuality(quality + qualityChange);
         }
 
         /* Wenn die Qualität ein bestimmtes Niveau unterschreitet 
         oder wenn das MHD erreicht ist, wird das Produkt entsorgt.
         Gilt nicht für Wein. */
-        if (!type.equals(type.WEIN)) {
-            if (!type.equals(type.WEIN)
-                    && (quality < minQuality || bestBefore < 1)) {
+        if (!type.equals(ProductTypes.WEIN)) {
+            if ((quality < minQuality || bestBefore < 1)) {
                 p.setDisposable(true);
             }
 
             // Tagespreis anpassen
-            price = price + (0.1 * quality);
+            p.setPrice(price + (0.1 * quality));
 
             // täglich das Verfallsdatum um 1 Tag verringern
             p.setBestBefore(bestBefore - 1);
