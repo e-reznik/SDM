@@ -17,7 +17,7 @@ public interface Properties {
      * Welche Qualitäten dürfen jeweils nicht unterschritten werden?
      *
      * Käse: minimale Qualiät: 30; Qualität ändert sich um -1; alle 1 Tage;
-     * Wein: minimale Qualiät: 1; Qualität ändert sich um +1; alle 1 Tage;
+     * Wein: minimale Qualiät: 1; Qualität ändert sich um +1; alle 10 Tage;
      * Äpfel: minimale Qualiät: 10; Qualität ändert sich um -1; alle 2 Tage;
      *
      */
