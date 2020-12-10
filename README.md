@@ -54,6 +54,14 @@ int days = 30;
 p.process(products, days);
 ```
 
+## Optionale Methoden
+Außerdem stehen Ihnen 2 optionale Methoden zur Verfügung:
+- `removeExpiredProducts`: entfernt abgelaufene Produkte
+  - `bestBefore < 1` 
+- `removeDisposableProducts`: entfernt als "abgelaufen" markierte Produkte
+  - `isDisposable = true`
+    - `quality < minQuality || bestBefore < 1`
+
 ---
 
 # Code Coverage
