@@ -3,11 +3,11 @@ Dies ist das Hauptprogramm, mit der eigentlichen Verarbeitungslogik. Zum Gesamtp
 - [SDM CSV-Generator](https://github.com/e-reznik/SDM-CSV-Generator)
 - [SDM GUI](https://github.com/e-reznik/SDM-Gui)
 
-**_Info: Damit Sie direkt mit dem Ausprobieren loslegen können, habe ich Ihnen eine [Beispiel-CSV](https://github.com/e-reznik/SDM/blob/master/src/main/resources/products.csv) erstellt._**
-
 Die Grafik visualisiert deren Kooperation:
 
 ![Module](https://github.com/e-reznik/SDM/blob/master/src/main/resources/img/components.png)
+
+**_Info: Damit Sie direkt mit dem Ausprobieren loslegen können, habe ich Ihnen eine [Beispiel-CSV](https://github.com/e-reznik/SDM/blob/master/src/main/resources/products.csv) erstellt._**
 
 # Module
 Sowohl das Hauptprogramm, als auch der CSV-Generator sind als Module verfügbar und agieren unabhängig. Sie können zwar in fremden Projekten verwendet und durch Schnittstellen angesprochen werden, sind allerdings aufeinander abgestimmt.
@@ -17,6 +17,8 @@ Als kleinen Service, habe ich einen [CSV-Generator](https://github.com/e-reznik/
 
 ## SDM GUI
 Als weiteres Bonbon, haben Sie die Möglichkeit, beide Module von einer [GUI](https://github.com/e-reznik/SDM-Gui) aus anzusprechen. In dieser Applikation wurden beide Module vereint, sodass diese noch komfortabler von Ihnen bedient werden können.
+
+---
 
 # Beispielnutzung
 Um die Daten einzulesen, muss die Methode `read()` des Objekts `Reader` aufgerufen werden. Der Rückgabewert ist eine Liste mit den Produkten, die anschließend an die Methode `process()` des Objekts `Processor` übergeben wird.  
@@ -52,10 +54,14 @@ int days = 30;
 p.process(products, days);
 ```
 
+---
+
 # Code Coverage
 Die Logikklassen haben eine Testabdeckung von 82%:
 
 ![CoCo](https://github.com/e-reznik/SDM/blob/master/src/main/resources/img/coco.png)
+
+---
 
 # Eigenschaften
 ## Produkttypen
@@ -65,6 +71,8 @@ Die Produkte können vom folgenden Typ sein:
  - Apfel
  
  ## Produkteigenschaften
+
+---
 
 # Verwendete Techniken & Technologien
 Im Gesamtprojekt wurde eine Reihe von Techniken und Technologien verwendet. Nachfolgend werden diese aufgeführt:
