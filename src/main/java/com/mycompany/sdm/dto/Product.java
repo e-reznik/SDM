@@ -129,10 +129,7 @@ public class Product implements Properties, Serializable {
         if (!Objects.equals(this.title, other.title)) {
             return false;
         }
-        if (this.type != other.type) {
-            return false;
-        }
-        return true;
+        return this.type == other.type;
     }
 
     @Override

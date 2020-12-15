@@ -9,16 +9,13 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import com.mycompany.sdm.interfaces.Properties;
 
-public class ProcessorTest {
-
-    public ProcessorTest() {
-    }
+class ProcessorTest {
 
     /**
      * Test of process method, of class Processor.
      */
     @Test
-    public void testProcess() {
+    void testProcess() {
         int days = 30;
         Processor instance = new Processor();
         Reader reader = new Reader();

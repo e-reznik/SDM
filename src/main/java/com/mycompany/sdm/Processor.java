@@ -11,9 +11,6 @@ public class Processor implements Properties {
 
     private static final Logger LOGGER = LogManager.getLogger(Processor.class);
 
-    public Processor() {
-    }
-
     /**
      * Verarbeitung der Produkte nach festgelegten Regeln.
      *
@@ -52,14 +49,14 @@ public class Processor implements Properties {
      */
     private void processProducts(List<Product> products, int days) {
         for (int i = 1; i <= days; i++) {
-            LOGGER.info("Tag: " + i);
+            LOGGER.info("Tag: {}", i);
 
             for (Product p : products) {
                 applyRules(p, i);
             }
 
             removeExpiredProducts(products);
-//            removeDisposableProducts(products);
+            removeDisposableProducts(products);
         }
     }
 

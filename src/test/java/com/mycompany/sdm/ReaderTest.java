@@ -10,10 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 import org.junit.jupiter.api.Test;
 import com.mycompany.sdm.interfaces.Properties;
 
-public class ReaderTest {
-
-    public ReaderTest() {
-    }
+class ReaderTest {
 
     /**
      * Test of read method, of class Reader.
@@ -21,7 +18,7 @@ public class ReaderTest {
      * @throws java.io.FileNotFoundException
      */
     @Test
-    public void testRead_InputStreamReader() throws FileNotFoundException {
+    void testRead_InputStreamReader() throws FileNotFoundException {
         ClassLoader classloader = Thread.currentThread().getContextClassLoader();
         InputStream is = classloader.getResourceAsStream("csv/products.csv");
         InputStreamReader isr = new InputStreamReader(is);
